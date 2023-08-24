@@ -49,7 +49,7 @@ app.use((error,req,res,next)=>{
 })
 
 const MONGO_URI =
-  "mongodb+srv://austinjb32:123Gmail@cluster0.pubnynq.mongodb.net/main";
+  `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.pubnynq.mongodb.net/${process.env.MONGO_DB}`;
 
 mongoose
   .connect(MONGO_URI)

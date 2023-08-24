@@ -60,15 +60,16 @@ module.exports = {
       error.code = 401;
       throw error;
     }
-
+    console.log(process.env.BCRYPT_CODE)
     const token = jwt.sign(
       {
         userId: user._id.toString(),
         email: user.email,
       },
-      "pseudomeunocode",
+      process.env.BCRYPT_CODE,
       { expiresIn: "1h" }
     );
+   
 
     return { token: token, userId: user._id.toString() };
   },
